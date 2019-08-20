@@ -2,6 +2,7 @@ package com.practice.data_structures.linked_list;
 
 public class LinkedList<T> {
     private Node<T> head;
+    private int length = 0;
 
     public LinkedList() {
         this.head = new Node<T>();
@@ -12,17 +13,23 @@ public class LinkedList<T> {
 
         if(isEmpty()) {
             head.setNext(node);
+            length++;
         } else {
             Node currNode = head;
             while(currNode.getNext() != null) {
                 currNode = currNode.getNext();
             }
             currNode.setNext(node);
+            length++;
         }
     }
 
     public boolean isEmpty() {
         return head.getNext() == null;
+    }
+
+    public int getLength() {
+        return length;
     }
 
     @Override
